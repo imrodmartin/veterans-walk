@@ -1,0 +1,141 @@
+:root {
+  --text: #333;
+  --muted: #666;
+  --accent: #f07d02;
+  --border: #ddd;
+  --page-width: 1140px;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #fff; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 16px;
+}
+
+.gallery-page {
+  width: min(calc(100% - 30px), var(--page-width));
+  margin: 0 auto;
+  padding: 40px 0 55px;
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.intro {
+  margin: 0 0 24px;
+  line-height: 1.65;
+}
+
+.alphabet-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 16px;
+  margin: 0 0 16px;
+  border: 1px solid var(--border);
+  background: #fafafa;
+}
+
+.alphabet-nav a,
+.alphabet-nav span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.alphabet-nav .all-link { width: 48px; }
+
+.alphabet-nav a:hover,
+.alphabet-nav a:focus-visible,
+.alphabet-nav .current {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.alphabet-nav .disabled {
+  color: #bbb;
+  background: #f2f2f2;
+}
+
+.result-summary {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.veterans-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.veteran-card {
+  position: relative;
+  display: block;
+  height: 200px;
+  overflow: hidden;
+  background: #eee;
+  color: #fff;
+  text-decoration: none;
+}
+
+.veteran-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 220ms ease;
+}
+
+.card-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgb(0 0 0 / 4%) 28%, rgb(0 0 0 / 88%) 100%);
+}
+
+.card-title {
+  position: absolute;
+  right: 18px;
+  bottom: 15px;
+  left: 18px;
+  z-index: 1;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.veteran-card:hover img,
+.veteran-card:focus-visible img { transform: scale(1.035); }
+
+.veteran-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 860px) {
+  .veterans-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 520px) {
+  .gallery-page { width: min(calc(100% - 24px), var(--page-width)); padding-top: 28px; }
+  .veterans-grid { grid-template-columns: 1fr; gap: 20px; }
+  .veteran-card { height: 230px; }
+  .alphabet-nav { padding: 12px; gap: 5px; }
+  .alphabet-nav a, .alphabet-nav span { width: 32px; height: 32px; }
+}
