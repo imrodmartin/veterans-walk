@@ -33,4 +33,4 @@ The gallery uses a restrained municipal-site layout: a centered 1140px content a
 
 ## Asset Note
 
-All memorial cards are stored under `assets/memorials`. Both gallery thumbnails and full-size card links stay inside the replica.
+Full-resolution memorial cards are stored under `assets/memorials`, while optimized glossary images are stored under `assets/thumbnails`. Card links open the full local image in a new tab.
